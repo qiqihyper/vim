@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#for tags
+sudo apt-get install ctags
+#for YouCompleteMe
+sudo apt-get install build-essential cmake python-dev
+#for syntastic 
+sudo apt-get install python-pip
+sudo pip install pyflakes
+sudo pip install pylint
+
+CURRENT_DIR=`pwd`
+
+#set up vundle
+git clone http://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+#apply vimrc from vundle
+vim -u $CURRENT_DIR/vimrc +BundleInstall +BundleClean +qall
+
+cd $CURRENT_DIR/bundle/YouCompleteMe
+bash -x install.sh --clang-completer
+
+#set links to `pwd`
+rm -rf ~/.vim ~/.vimrc
+ln -sf $CURRENT_DIR ~/.vim
+ln -sf $CURRENT_DIR ~/.vimrc
