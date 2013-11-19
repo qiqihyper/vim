@@ -1,5 +1,4 @@
 let mapleader = ','
-
 set nocompatible
 set novb t_vb=
 set nobackup
@@ -22,6 +21,11 @@ imap <F3> <ESC><F3>
 noremap <F3> :w<cr>
 imap <C-r> <ESC><C-r>
 noremap <C-r> :sh<cr>
+nnoremap <TAB> :MBEbn<CR>
+noremap <Up> <c-w>k
+noremap <Down> <c-w>j
+noremap <Right> <c-w>l
+noremap <Left> <c-w>h
 
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -34,7 +38,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 Bundle 'fholgado/minibufexpl.vim'
 
-
 Bundle 'majutsushi/tagbar'
 imap <silent> <F9> <ESC><F9>
 noremap <silent> <F9> :TagbarToggle<CR>
@@ -42,6 +45,10 @@ noremap <silent> <F9> :TagbarToggle<CR>
 Bundle 'vim-scripts/taglist.vim'
 imap <silent> <F8> <ESC><F8>
 noremap <silent> <F8> :TlistToggle<CR>
+
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<leader>p'
+noremap <leader>f :CtrlPMRU<CR>
 
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'unicode'
@@ -89,9 +96,13 @@ let g:syntastic_enable_highlighting = 1
 Bundle 'hdima/python-syntax'
 
 Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<cr>"
+let g:UltiSnipsJumpForwardTrigger = "<cr>"
+let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
 Bundle 'Valloric/YouCompleteMe'
 set completeopt-=preview
+let g:ycm_min_num_of_chars_for_completion = 1
 
 Bundle 'altercation/vim-colors-solarized'
 
