@@ -5,7 +5,7 @@ hi def link cFuntions Title
 "Highlight All Math Operator
 syn match cOperator display "[-+*%=.!<>^&|~/\[\]]"
 syn match COperator display "::"
-hi def link cOperator  Todo
+hi def link cOperator  cPreCondit
 
 syn match cFenhaoDouhao display "[;,]"
 hi def link cFenhaoDouhao SpecialChar
