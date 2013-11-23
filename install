@@ -11,6 +11,11 @@ sudo pip install pylint
 
 CURRENT_DIR=`pwd`
 
+#set links to `pwd`
+rm -rf ~/.vim ~/.vimrc
+ln -sf $CURRENT_DIR ~/.vim
+ln -sf $CURRENT_DIR ~/.vimrc
+
 #set up vundle
 git clone http://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
 #apply vimrc from vundle
@@ -19,7 +24,3 @@ vim -u $CURRENT_DIR/vimrc +BundleInstall +BundleClean +qall
 cd $CURRENT_DIR/bundle/YouCompleteMe
 bash -x install.sh --clang-completer
 
-#set links to `pwd`
-rm -rf ~/.vim ~/.vimrc
-ln -sf $CURRENT_DIR ~/.vim
-ln -sf $CURRENT_DIR ~/.vimrc
