@@ -3,13 +3,13 @@ set nocompatible
 set novb t_vb=
 set nobackup
 set writebackup
-set mouse=a
 set cursorcolumn
 set cursorline
 set t_ti= t_te=
+set clipboard=unnamed
 set nu
-imap <F2> <ESC><F2>
-noremap <F2> :call NumberToggle()<cr>
+imap <F11> <ESC><F11>
+noremap <F11> :call NumberToggle()<cr>
 func! NumberToggle()
 	if(&nu)
 		set nonu
@@ -21,11 +21,13 @@ imap <F3> <ESC><F3>
 noremap <F3> :w<cr>
 imap <C-r> <ESC><C-r>
 noremap <C-r> :sh<cr>
-nnoremap <TAB> :MBEbn<CR>
+nnoremap <C-h> :MBEbn<CR>
+nnoremap <C-l> :MBEbp<CR>
 noremap <Up> <c-w>k
 noremap <Down> <c-w>j
 noremap <Right> <c-w>l
 noremap <Left> <c-w>h
+cmap w!! w !sudo tee >/dev/null %
 
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -33,6 +35,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/nerdtree'
+let NERDTreeChDirMode=2
 noremap <F10> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q |end
 
@@ -96,15 +99,19 @@ let g:syntastic_enable_highlighting = 1
 Bundle 'hdima/python-syntax'
 
 Bundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = "<cr>"
-let g:UltiSnipsJumpForwardTrigger = "<cr>"
+let g:UltiSnipsExpandTrigger = "<F2>"
+let g:UltiSnipsJumpForwardTrigger = "<F2>"
 let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
 Bundle 'Valloric/YouCompleteMe'
 set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion = 1
 
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 Bundle 'scrooloose/nerdcommenter'
 
@@ -112,12 +119,14 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-colorscheme solarized
-set background=dark
+colorscheme molokai
+"set background=dark
 
 if has("gui_running")
 	set guifont=XHei\ Mono\ 14
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
+	autocmd BufEnter * cd %:p:h
+	cd /home/qiqi/coding
 endif
