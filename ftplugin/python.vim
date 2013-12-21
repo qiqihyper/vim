@@ -8,6 +8,6 @@ imap <silent> <F5> <ESC><F5>
 noremap <silent> <F5> :call RunPython()<CR>
 func! RunPython()
 	exec "w"
-	exec "!python3 %"
+	exec "!python %"
 	echo "\n"
 endfunc
