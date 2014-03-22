@@ -1,11 +1,15 @@
+set autoread
 let mapleader = ','
 set nocompatible
+set mouse=a
 set novb t_vb=
 set nobackup
 set writebackup
 set cursorcolumn
 set cursorline
+set foldmethod=indent
 set t_ti= t_te=
+set t_Co=256
 set clipboard=unnamed
 set nu
 imap <F11> <ESC><F11>
@@ -19,10 +23,6 @@ func! NumberToggle()
 endfunc
 imap <F3> <ESC><F3>
 noremap <F3> :w<cr>
-"imap <C-r> <ESC><C-r>
-"noremap <C-r> :sh<cr>
-"nnoremap <C-h> :MBEbn<CR>
-"nnoremap <C-l> :MBEbp<CR>
 noremap <Up> <c-w>k
 noremap <Down> <c-w>j
 noremap <Right> <c-w>l
@@ -38,27 +38,18 @@ Bundle 'scrooloose/nerdtree'
 imap <silent> <F2> <ESC><F2>
 noremap <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q |end
-let NERDTreeWinSize=28
-"let NERDTreeShowLineNumbers=1
-
-"Bundle 'fholgado/minibufexpl.vim'
+let NERDTreeWinSize=26
+let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeDirArrows=0
 
 Bundle 'majutsushi/tagbar'
 imap <silent> <F9> <ESC><F9>
 noremap <silent> <F9> :TagbarToggle<CR>
-
-"Bundle 'vim-scripts/taglist.vim'
-"imap <silent> <F8> <ESC><F8>
-"noremap <silent> <F8> :TlistToggle<CR>
-
-"Bundle 'kien/ctrlp.vim'
-"let g:ctrlp_map = '<leader>p'
-"noremap <leader>f :CtrlPMRU<CR>
+let g:tagbar_width=26
+let g:tagbar_iconchars = ['+', '-']
 
 Bundle 'Lokaltog/vim-powerline'
 set laststatus=2
-"set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
-set t_Co=256
 
 Bundle 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
@@ -86,10 +77,16 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-"Bundle 'Yggdroot/indentLine'
-"let g:indentLine_noConcealCursor = 1
-"let g:indentLine_color_term = 239
-"let g:indentLine_char = '¦'
+Bundle 'Yggdroot/indentLine'
+let g:indentLine_noConcealCursor = 1
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┊'
+"imap <F10> <ESC><F10>
+map <F10> :call IndentLineToggle()<cr>
+func! IndentLineToggle()
+	let g:indentLine_enabled = 0
+	source ~/.vimrc
+endfunc
 
 Bundle 'Raimondi/delimitMate'
 
@@ -108,8 +105,9 @@ let g:syntastic_enable_highlighting = 1
 "set completeopt-=preview
 "let g:ycm_min_num_of_chars_for_completion = 1
 
-"Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'docunext/closetag.vim'
 
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
@@ -121,7 +119,6 @@ filetype plugin on
 filetype plugin indent on
 
 colorscheme molokai
-"set background=dark
 
 if has("gui_running")
 	set guifont=XHei\ Mono\ 14
