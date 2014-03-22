@@ -19,10 +19,10 @@ func! NumberToggle()
 endfunc
 imap <F3> <ESC><F3>
 noremap <F3> :w<cr>
-imap <C-r> <ESC><C-r>
-noremap <C-r> :sh<cr>
-nnoremap <C-h> :MBEbn<CR>
-nnoremap <C-l> :MBEbp<CR>
+"imap <C-r> <ESC><C-r>
+"noremap <C-r> :sh<cr>
+"nnoremap <C-h> :MBEbn<CR>
+"nnoremap <C-l> :MBEbp<CR>
 noremap <Up> <c-w>k
 noremap <Down> <c-w>j
 noremap <Right> <c-w>l
@@ -35,28 +35,29 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/nerdtree'
-let NERDTreeChDirMode=2
-noremap <F10> :NERDTreeToggle<CR>
+imap <silent> <F2> <ESC><F2>
+noremap <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q |end
+let NERDTreeWinSize=28
+"let NERDTreeShowLineNumbers=1
 
-Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 
 Bundle 'majutsushi/tagbar'
 imap <silent> <F9> <ESC><F9>
 noremap <silent> <F9> :TagbarToggle<CR>
 
-Bundle 'vim-scripts/taglist.vim'
-imap <silent> <F8> <ESC><F8>
-noremap <silent> <F8> :TlistToggle<CR>
+"Bundle 'vim-scripts/taglist.vim'
+"imap <silent> <F8> <ESC><F8>
+"noremap <silent> <F8> :TlistToggle<CR>
 
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<leader>p'
-noremap <leader>f :CtrlPMRU<CR>
+"Bundle 'kien/ctrlp.vim'
+"let g:ctrlp_map = '<leader>p'
+"noremap <leader>f :CtrlPMRU<CR>
 
 Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'unicode'
 set laststatus=2
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 set t_Co=256
 
 Bundle 'kien/rainbow_parentheses.vim'
@@ -85,10 +86,10 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-Bundle 'Yggdroot/indentLine'
-let g:indentLine_noConcealCursor = 1
-let g:indentLine_color_term = 239
-let g:indentLine_char = '¦'
+"Bundle 'Yggdroot/indentLine'
+"let g:indentLine_noConcealCursor = 1
+"let g:indentLine_color_term = 239
+"let g:indentLine_char = '¦'
 
 Bundle 'Raimondi/delimitMate'
 
@@ -96,16 +97,16 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_enable_highlighting = 1
 
-Bundle 'hdima/python-syntax'
+"Bundle 'hdima/python-syntax'
 
-Bundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = "<F2>"
-let g:UltiSnipsJumpForwardTrigger = "<F2>"
-let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
+"Bundle 'SirVer/ultisnips'
+"let g:UltiSnipsExpandTrigger = "<F2>"
+"let g:UltiSnipsJumpForwardTrigger = "<F2>"
+"let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
-Bundle 'Valloric/YouCompleteMe'
-set completeopt-=preview
-let g:ycm_min_num_of_chars_for_completion = 1
+"Bundle 'Valloric/YouCompleteMe'
+"set completeopt-=preview
+"let g:ycm_min_num_of_chars_for_completion = 1
 
 "Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
@@ -128,5 +129,5 @@ if has("gui_running")
 	set guioptions-=r
 	set guioptions-=L
 	autocmd BufEnter * cd %:p:h
-	cd /home/qiqi/coding
+	"cd /home/qiqi/coding
 endif
