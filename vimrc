@@ -1,13 +1,12 @@
 set autoread
 let mapleader = ','
 set nocompatible
-set mouse=a
 set novb t_vb=
 set nobackup
 set writebackup
 set cursorcolumn
 set cursorline
-set foldmethod=indent
+"set foldmethod=indent
 set t_ti= t_te=
 set t_Co=256
 set clipboard=unnamed
@@ -23,10 +22,6 @@ func! NumberToggle()
 endfunc
 imap <F3> <ESC><F3>
 noremap <F3> :w<cr>
-noremap <Up> <c-w>k
-noremap <Down> <c-w>j
-noremap <Right> <c-w>l
-noremap <Left> <c-w>h
 cmap w!! w !sudo tee >/dev/null %
 
 filetype off
@@ -81,12 +76,6 @@ Bundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
-"imap <F10> <ESC><F10>
-map <F10> :call IndentLineToggle()<cr>
-func! IndentLineToggle()
-	let g:indentLine_enabled = 0
-	source ~/.vimrc
-endfunc
 
 Bundle 'Raimondi/delimitMate'
 
@@ -94,34 +83,32 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_enable_highlighting = 1
 
-"Bundle 'hdima/python-syntax'
-
-"Bundle 'SirVer/ultisnips'
-"let g:UltiSnipsExpandTrigger = "<F2>"
-"let g:UltiSnipsJumpForwardTrigger = "<F2>"
-"let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
+Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsListSnippets="<C-l>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 "Bundle 'Valloric/YouCompleteMe'
 "set completeopt-=preview
 "let g:ycm_min_num_of_chars_for_completion = 1
 
 Bundle 'tomasr/molokai'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'docunext/closetag.vim'
 
-Bundle 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
+"Bundle 'plasticboy/vim-markdown'
+"let g:vim_markdown_folding_disabled=1
 
 Bundle 'scrooloose/nerdcommenter'
 
 filetype on
 filetype plugin on
 filetype plugin indent on
+au BufNewFile,BufRead *.md setf md
 
 colorscheme molokai
 
 if has("gui_running")
-	set guifont=XHei\ Mono\ 14
+	"set guifont=XHei\ Mono\ 14
+	set guifont=Yahei\ Monaco\ 11
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L

@@ -1,0 +1,57 @@
+priority -50
+
+###########################
+# Sections and Paragraphs #
+###########################
+snippet header "the git page headers"
+---
+layout: ${1:post}
+title: ${2:title}
+category: ${3:category}
+summary: ${4:summary}
+tags: ${5:tags}
+---
+
+{{ page.title }}
+=====================
+
+{{ page.summary }}
+endsnippet
+
+snippet sec "Section" b
+# ${1:Section Name} #
+$0
+endsnippet
+
+snippet ssec "Sub Section" b
+## ${1:Section Name} ##
+$0
+endsnippet
+
+snippet sssec "SubSub Section" b
+### ${1:Section Name} ###
+$0
+endsnippet
+
+snippet par "Paragraph" b
+#### ${1:Paragraph Name} ####
+$0
+endsnippet
+
+snippet spar "Paragraph" b
+##### ${1:Paragraph Name} #####
+$0
+endsnippet
+
+################
+# Common stuff #
+################
+snippet link "Link to something"
+[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0
+endsnippet
+
+snippet img "Image"
+![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+endsnippet
+
+# vim:ft=snippets:
