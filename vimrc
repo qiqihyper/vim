@@ -94,8 +94,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 Bundle 'tomasr/molokai'
 
-"Bundle 'plasticboy/vim-markdown'
-"let g:vim_markdown_folding_disabled=1
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 Bundle 'scrooloose/nerdcommenter'
 
