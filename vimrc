@@ -88,8 +88,8 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsListSnippets="<C-l>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
-"Bundle 'Valloric/YouCompleteMe'
-"set completeopt-=preview
+Bundle 'Valloric/YouCompleteMe'
+set completeopt-=preview
 "let g:ycm_min_num_of_chars_for_completion = 1
 
 Bundle 'tomasr/molokai'
@@ -107,11 +107,12 @@ au BufNewFile,BufRead *.md setf md
 colorscheme molokai
 
 if has("gui_running")
-	"set guifont=XHei\ Mono\ 14
-	set guifont=Yahei\ Monaco\ 11
+	set guifont=XHei\ Mono\ 11
+	"set guifont=Yahei\ Monaco\ 11
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	autocmd BufEnter * cd %:p:h
+	autocmd vimenter * NERDTree
 	"cd /home/qiqi/coding
 endif

@@ -1,3 +1,5 @@
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
 set tabstop=8
 set sw=8
 
@@ -23,4 +25,13 @@ func! RunGdb()
     exec "w"
 	exec "!g++ % -g -o %<"
 	exec "!gdb ./%<"
+endfunc
+imap <silent> <F7> <ESC><F7>
+noremap <silent> <F7> :call RunMake() <CR>
+func! RunMake()
+	exec "w"
+	exec "!g++ % -o %<"
+	"exec "!time ./%<"
+	exec "!./%< < %<.txt"
+	echo "\n\n"
 endfunc
