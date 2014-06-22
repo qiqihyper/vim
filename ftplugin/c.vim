@@ -1,7 +1,7 @@
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-
-set tabstop=8
-set sw=8
+let g:ycm_global_ycm_extra_conf = '/home/qiqi/apps/vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+set tabstop=4
+set sw=4
+set cindent
 
 imap <silent> <F4> <ESC><F4>
 noremap <silent> <F4> :call Compile() <CR>

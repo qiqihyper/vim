@@ -3,6 +3,7 @@ let mapleader = ','
 set nocompatible
 set novb t_vb=
 set nobackup
+set ttimeoutlen=100
 set writebackup
 set cursorcolumn
 set cursorline
@@ -98,6 +99,7 @@ Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/fcitx.vim'
 
 filetype on
 filetype plugin on
@@ -107,8 +109,9 @@ au BufNewFile,BufRead *.md setf md
 colorscheme molokai
 
 if has("gui_running")
-	set guifont=XHei\ Mono\ 11
+	"set guifont=XHei\ Mono\ 11
 	"set guifont=Yahei\ Monaco\ 11
+	set guifont=Monaco\ 10
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
