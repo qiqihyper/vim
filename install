@@ -17,10 +17,10 @@ ln -sf $CURRENT_DIR ~/.vim
 ln -sf $CURRENT_DIR ~/.vimrc
 
 #set up vundle
-git clone http://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+git clone http://github.com/gmarik/vundle.git ./bundle/vundle
 #apply vimrc from vundle
-vim -u $CURRENT_DIR/vimrc +BundleInstall +BundleClean +qall
+vim -u ./vimrc +BundleInstall +BundleClean +qall
 
-cd $CURRENT_DIR/bundle/YouCompleteMe
+cd ./bundle/YouCompleteMe
 bash -x install.sh --clang-completer
 

@@ -8,7 +8,7 @@ set ttimeoutlen=100
 set writebackup
 set t_ti= t_te=
 set t_Co=256
-set cursorcolumn
+"set cursorcolumn
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi CursorColumn cterm=NONE ctermbg=236
