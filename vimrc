@@ -41,7 +41,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc() 
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 
 Bundle 'scrooloose/nerdtree'
 imap <silent> <F2> <ESC><F2>
@@ -50,7 +50,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeWinSize=26
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeDirArrows=0
-set laststatus=2
+"set laststatus=2
 
 syntax on
 
