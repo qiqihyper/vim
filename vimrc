@@ -25,15 +25,6 @@ hi CursorLine   cterm=NONE ctermbg=236
 hi CursorColumn cterm=NONE ctermbg=236
 set clipboard=unnamed
 set nu
-imap <F11> <ESC><F11>
-noremap <F11> :call NumberToggle()<cr>
-func! NumberToggle()
-	if(&nu)
-		set nonu
-	else
-		set nu
-	endif
-endfunc
 cmap w!! w !sudo tee >/dev/null %
 
 filetype off
