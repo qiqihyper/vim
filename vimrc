@@ -6,8 +6,12 @@ set softtabstop=2
 set smarttab
 set expandtab
 
+set nu
+syntax on
+
 set mouse=a
 set backspace=indent,eol,start
+set foldmethod=manual
 
 set autoread
 let mapleader = ';'
@@ -19,33 +23,28 @@ set writebackup
 set t_ti= t_te=
 set t_Co=256
 set hlsearch
-"set cursorcolumn
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi CursorColumn cterm=NONE ctermbg=236
-set clipboard=unnamed
-set nu
+set clipboard+=unnamedplus
 cmap w!! w !sudo tee >/dev/null %
 
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc() 
-Bundle 'gmarik/vundle'
+filetype on
+filetype plugin on
+filetype plugin indent on
+au BufNewFile,BufRead,BufReadPost *.md setf markdown
 
-"Bundle 'Lokaltog/vim-powerline'
+call plug#begin('~/.vim/bundle')
 
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
 imap <silent> <F2> <ESC><F2>
 noremap <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q |end
 let NERDTreeWinSize=26
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
 let NERDTreeDirArrows=0
-"set laststatus=2
 
-syntax on
-
-Bundle 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -71,21 +70,17 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-Bundle 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
-Bundle 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for' : 'markdown' }
 let g:vim_markdown_folding_disabled=1
 
-Bundle 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
-Bundle 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for' : 'javascript' }
 let g:javascript_enable_domhtmlcss = 1
 let g:javascript_ignore_javaScriptdoc = 1
-set foldmethod=manual
-Bundle 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx', { 'for' : 'javascript' }
 let g:jsx_ext_required = 0
 
-filetype on
-filetype plugin on
-filetype plugin indent on
-au BufNewFile,BufRead *.md setf md
+call plug#end()

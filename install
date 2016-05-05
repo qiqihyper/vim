@@ -1,26 +1,28 @@
 #!/bin/bash
 
 #for tags
-sudo apt-get install ctags
+#sudo apt-get install ctags
 #for YouCompleteMe
-sudo apt-get install build-essential cmake python-dev
+#sudo apt-get install build-essential cmake python-dev
 #for syntastic 
-sudo apt-get install python-pip
-sudo pip install pyflakes
-sudo pip install pylint
+#sudo apt-get install python-pip
+#sudo pip install pyflakes
+#sudo pip install pylint
 
-CURRENT_DIR=`pwd`
+#CURRENT_DIR=`pwd`
 
 #set links to `pwd`
-rm -rf ~/.vim ~/.vimrc
-ln -sf $CURRENT_DIR ~/.vim
-ln -sf $CURRENT_DIR ~/.vimrc
+#rm -rf ~/.vim ~/.vimrc
+#ln -sf $CURRENT_DIR ~/.vim
+#ln -sf $CURRENT_DIR ~/.vimrc
 
 #set up vundle
-git clone http://github.com/gmarik/vundle.git ./bundle/vundle
+#git clone http://github.com/gmarik/vundle.git ./bundle/vundle
 #apply vimrc from vundle
-vim -u ./vimrc +BundleInstall +BundleClean +qall
+#vim -u ./vimrc +BundleInstall +BundleClean +qall
 
-cd ./bundle/YouCompleteMe
-bash -x install.sh --clang-completer
+#cd ./bundle/YouCompleteMe
+#bash -x install.sh --clang-completer
 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
