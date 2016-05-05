@@ -89,4 +89,8 @@ let g:closetag_html_style=1
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+
 call plug#end()
