@@ -26,7 +26,7 @@ set hlsearch
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi CursorColumn cterm=NONE ctermbg=236
-"set clipboard+=unnamedplus
+vmap <C-c> "+y
 cmap w!! w !sudo tee >/dev/null %
 
 filetype on
