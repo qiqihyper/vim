@@ -72,9 +72,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 Plug 'Raimondi/delimitMate'
 
-Plug 'plasticboy/vim-markdown', { 'for' : 'markdown' }
-let g:vim_markdown_folding_disabled=1
-
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'pangloss/vim-javascript', { 'for' : 'javascript' }
