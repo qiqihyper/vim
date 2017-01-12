@@ -6,7 +6,7 @@ set softtabstop=2
 set smarttab
 set expandtab
 
-set nu
+"set nu
 syntax on
 
 set mouse=a
