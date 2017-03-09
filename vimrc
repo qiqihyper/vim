@@ -74,16 +74,4 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'pangloss/vim-javascript', { 'for' : 'javascript' }
-let g:javascript_enable_domhtmlcss = 1
-let g:javascript_ignore_javaScriptdoc = 1
-Plug 'mxw/vim-jsx', { 'for' : 'javascript' }
-let g:jsx_ext_required = 0
-
-Plug 'docunext/closetag.vim', { 'for' : [ 'html', 'javascript' ] }
-let g:closetag_html_style=1
-
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-
 call plug#end()
