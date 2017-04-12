@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#for tags
 #sudo apt-get install ctags
 #for YouCompleteMe
 #sudo apt-get install build-essential cmake python-dev
