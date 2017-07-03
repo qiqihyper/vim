@@ -74,4 +74,9 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_save_on_switch = 1
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 call plug#end()
