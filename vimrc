@@ -9,7 +9,7 @@ set expandtab
 "set nu
 syntax on
 
-set mouse=a
+set mouse-=a
 set backspace=indent,eol,start
 set foldmethod=manual
 
