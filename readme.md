@@ -1,1 +1,2 @@
-(g)Vim config backup
+# Deprecated
+close source
